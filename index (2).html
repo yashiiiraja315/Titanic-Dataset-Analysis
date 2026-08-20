@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Babuu 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 40%),
+        radial-gradient(circle at bottom right, #d9ccff, transparent 45%),
+        #fff1f7;
+
+    transition: background 2s ease;
+}
+
+.card {
+    width: 90%;
+    max-width: 600px;
+
+    padding: 40px 25px;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.62);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 20px 60px rgba(180,100,150,0.20);
+
+    position: relative;
+    z-index: 2;
+}
+
+#scene {
+    animation: showScene 1.2s ease;
+}
+
+h1 {
+    color: #8d4269;
+    font-size: 36px;
+    margin-bottom: 22px;
+}
+
+p {
+    color: #69445a;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.big {
+    font-size: 25px;
+    color: #9a4d77;
+}
+
+.glow {
+    text-shadow: 0 0 12px #ffb6d5;
+}
+
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+
+    font-size: 20px;
+
+    animation: floatHeart 7s linear forwards;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* Floating bubbles */
+
+.bubble {
+    position: fixed;
+
+    bottom: -40px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.55);
+
+    box-shadow: 0 0 15px rgba(255,170,210,0.4);
+
+    animation: bubbleUp 8s linear forwards;
+
+    pointer-events: none;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+@keyframes bubbleUp {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+
+@keyframes showScene {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+    <div id="scene">
+
+        <h1>
+            Alee meraaa kuchuu... 🥹💗
+        </h1>
+
+        <p>
+            Tumhare liye ek chhoti si surprise hai.
+        </p>
+
+        <p class="big">
+            Bas smile karte hue dekhna. 🌸
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+const scene = document.getElementById("scene");
+
+
+/* HEARTS */
+
+function makeHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const list = [
+        "💗",
+        "💕",
+        "💖",
+        "💓",
+        "🌸",
+        "🫶🏻"
+    ];
+
+    heart.innerHTML =
+        list[Math.floor(Math.random() * list.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(makeHeart, 600);
+
+
+/* BUBBLES */
+
+function makeBubble() {
+
+    const bubble = document.createElement("div");
+
+    bubble.className = "bubble";
+
+    const size =
+        8 + Math.random() * 20;
+
+    bubble.style.width = size + "px";
+    bubble.style.height = size + "px";
+
+    bubble.style.left =
+        Math.random() * 100 + "vw";
+
+    document.body.appendChild(bubble);
+
+    setTimeout(function() {
+        bubble.remove();
+    }, 9000);
+}
+
+setInterval(makeBubble, 900);
+
+
+/* CHANGE SCENE */
+
+function show(content) {
+
+    scene.style.animation = "none";
+
+    scene.offsetHeight;
+
+    scene.style.animation =
+        "showScene 1.2s ease";
+
+    scene.innerHTML = content;
+}
+
+
+/* SCENE 2 */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1>
+            Ek secret bataun? 👀💗
+        </h1>
+
+        <p>
+            Tum meri favourite notification ho. 😂
+        </p>
+
+        <p class="big">
+            Tumhara message aate hi
+            mood automatically better ho jata hai. 🥹
+        </p>
+
+    `);
+
+}, 10000);
+
+
+/* SCENE 3 */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1>
+            Waise yaad hai? 😂
+        </h1>
+
+        <p>
+            Tum kehte the na...
+        </p>
+
+        <p class="big">
+            "Tumhe kuch nahi aata." 😤
+        </p>
+
+        <p>
+            Dekho...
+            tumhare liye website bana di. 😌💗
+        </p>
+
+    `);
+
+}, 20000);
+
+
+/* SCENE 4 */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1>
+            Ab bolo... 👀😂
+        </h1>
+
+        <p class="big">
+            Kuch aata hai ya nahi?
+        </p>
+
+        <p>
+            Aur zyada hawa mein mat udna...
+            website abhi aur bhi cute ho sakti hai. 😌💕
+        </p>
+
+    `);
+
+}, 30000);
+
+
+/* SCENE 5 */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1>
+            Alee meraaa puchuuu... 🥹
+        </h1>
+
+        <p class="big glow">
+            Mujhe miss kar raha hai kyaaa? 💗
+        </p>
+
+        <p>
+            Sach sach bolna...
+            jhooth pakda gaya toh fine lagega. 😂
+        </p>
+
+    `);
+
+}, 40000);
+
+
+/* SCENE 6 */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1>
+            Jokes apart... 🌷
+        </h1>
+
+        <p>
+            Tumhare saath hasi-mazaak karna,
+            tumhe tang karna...
+        </p>
+
+        <p class="big">
+            Mujhe bahut pasand hai. 💕
+        </p>
+
+    `);
+
+}, 50000);
+
+
+/* FINAL */
+
+setTimeout(function() {
+
+    show(`
+
+        <h1 class="glow">
+            For My Babuu 💗
+        </h1>
+
+        <p class="big">
+            Tum mere liye
+            bahut special ho. 🫶🏻
+        </p>
+
+        <p>
+            Ab ek cute si smile kar do...
+        </p>
+
+        <p class="big">
+            Bas wahi toh chahiye. 🥹💗
+        </p>
+
+        <p style="font-size:30px;">
+            🌸 💕 ✨ 💗 ✨ 💕 🌸
+        </p>
+
+    `);
+
+}, 60000);
+
+
+</script>
+
+</body>
+</html>
